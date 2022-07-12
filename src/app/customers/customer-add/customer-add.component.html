@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-panel-title>Agregar Cliente</mat-panel-title>
+</mat-card>
+
+<mat-card>
+  <form [formGroup]="customerForm" (ngSubmit)="onFormSubmit(customerForm.value)">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" formControlName="name"
+                [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!customerForm.get('name').valid && customerForm.get('name').touched">Please enter name</span>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="email"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!customerForm.get('email').valid && customerForm.get('email').touched">Please enter Email</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Dirección" formControlName="address"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!customerForm.get('address').valid && customerForm.get('address').touched">Please enter Address</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Ciudad" formControlName="city"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!customerForm.get('city').valid && customerForm.get('city').touched">Please enter City</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Pais" formControlName="country"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!customerForm.get('country').valid && customerForm.get('country').touched">Please enter Country</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Telefono" formControlName="phone"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!customerForm.get('phone').valid && customerForm.get('phone').touched">Please enter Phone number</span>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-slide-toggle formControlName="active" >Active</mat-slide-toggle>
+
+    <div class="button-row">
+      <button type="submit" [disabled]="!customerForm.valid || customerForm.prestine" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+      <button type="button" mat-flat-button color="primary" (click)="cancelEdit()">Cancel</button>      
+    </div>
+
+
+  </form>
+
+
+</mat-card>

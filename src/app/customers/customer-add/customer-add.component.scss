@@ -1,0 +1,78 @@
+/* Structure */
+.example-container {
+    position: relative;
+    padding: 5px;
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-full-width:nth-last-child() {
+    margin-bottom: 10px;
+  }
+  
+  .button-row {
+    margin: 10px 0;
+  }
+  
+  .mat-flat-button {
+    margin: 5px;
+  }
+  
+  .invisible{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  
+  
+  .uploadfilecontainer {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    border: 2px dashed #1C8ADB;
+    border-radius: 10px;
+    padding: 2rem 1.25rem;
+  }
+  
+  .uploadfilecontainer:hover {
+    cursor: pointer;
+    background-color: #9ecbec !important;
+    opacity: 0.8;
+  }
+  
+  .files-list {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto;
+    background: #ffffff;
+    border: 1px dashed;
+    border-radius: 12px;
+    padding: 5px;
+    color: #1c8adb;
+  }
+  
+  .files-list .delete-file {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .files-list .delete-file img {
+    width: 30px;
+  }
+  
+  .uploadfilecontainer label {
+    color: #d3394c;
+    cursor: pointer;
+  }

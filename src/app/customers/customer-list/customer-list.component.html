@@ -1,0 +1,66 @@
+<mat-card>
+  <a mat-flat-button color="primary" [routerLink]="['/customer-add']"><mat-icon>add</mat-icon></a>
+</mat-card>
+
+    <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="example-table"
+        matSort matSortActive="sku" matSortDisableClear matSortDirection="asc">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let row" >{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row" >{{row.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Dirección</th>
+      <td mat-cell *matCellDef="let row">{{row.address}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef>Ciudad</th>
+      <td mat-cell *matCellDef="let row">{{row.city}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef>Pais</th>
+      <td mat-cell *matCellDef="let row">{{row.country}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+      <td mat-cell *matCellDef="let row"> {{row.phone}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef>Active</th>
+        
+      <ng-container *matCellDef="let row">
+          <td mat-cell *ngIf="row.active == 1"  >
+              <mat-icon color="accent">thumb_up</mat-icon>          
+          </td>
+            <td mat-cell *ngIf="row.active == 0" >
+                <mat-icon>thumb_down</mat-icon>          
+            </td>
+          </ng-container>              
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row class="element-row" style="cursor: pointer;" *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/customer-edit/', row.id]"></tr>
+  </table>
+
+  <mat-paginator #paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    [showFirstLastButtons]="true">
+  </mat-paginator>
+  
